@@ -5,8 +5,6 @@ import cv2
 from pygame import mixer
 
 
-
-
 def state_machine(sumation,sound):
 
 	# Check if blue color object present in the ROI 	
