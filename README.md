@@ -1,4 +1,4 @@
-![alt text](Image.png)
+![Recordit GIF](play_drums.gif)
 
 # AIR_Drums 
 
@@ -6,14 +6,9 @@
 > A fun application created to enable users to play virtual drums anywhere simply by using
 > colour tags.
 
-- You can use it for entertainent
-- Ergo, people should understand instantly what your project is about based on your repo
+- You can use it for entertainent or can learn some key functions of opencv from this code. 
+- Refer a detailed [Tutorial](tutorial.md) explaining the same.
 
-> Tips
-
-- HAVE WHITE SPACE
-- MAKE IT PRETTY
-- GIFS ARE REALLY COOL
 
 > GIF Tools
 
@@ -22,7 +17,7 @@
 
 **Recordit**
 
-![Recordit GIF](http://g.recordit.co/iLN6A0vSD8.gif)
+
 
 **ttystudio**
 
@@ -44,19 +39,6 @@
 
 
 ---
-
-## Example (Optional)
-
-```javascript
-// code away!
-
-let generateProject = project => {
-  let code = [];
-  for (let js = 0; js < project.length; js++) {
-    code.push(js);
-  }
-};
-```
 
 ---
 
