@@ -28,7 +28,7 @@ colour tags.
 
 ---
 
-## Tutorial
+### Refer the [Tutorial](Tutorial.md) for detailed explaination of the code.
 
 
 ## License
