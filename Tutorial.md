@@ -4,7 +4,32 @@ This tutorial aims at explaining some key concepts of `image processing` using `
 
 We will try to understand each line of the [code](Air_Drums.py)
 
+
+---
+#### Importing all the required libraries 
 ```python
 
-# THis is awesome 
+# Importing the libraries 
+from collections import deque
+import numpy as np
+import time
+import cv2
+from pygame import mixer
+
 ````
+
+####  Initializing variables and creating objects
+
+```python
+
+Verbsoe = True
+
+# importing the audio files
+mixer.init()
+drum_clap = mixer.Sound('batterrm.wav')
+drum_snare = mixer.Sound('button-2.ogg')
+
+```
+
+Here `verbose` is a boolean that you can set to visualise the processing 
+in the [region of interest] (# Initializing variables and creating objects) 
