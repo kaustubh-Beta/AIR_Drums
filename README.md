@@ -2,10 +2,11 @@
 
 # AIR_Drums 
 
-> Augmented reality drums based on concepts of computer vision and image processing. Created to learn some 
-> key concepts of image processing and applying it in opencv
+> Augmented reality drums based on concepts of computer vision and image processing. 
+> A fun application created to enable users to play virtual drums anywhere simply by using
+> colour tags.
 
-- Most people will glance at your `README`, *maybe* star it, and leave
+- You can use it for entertainent
 - Ergo, people should understand instantly what your project is about based on your repo
 
 > Tips
