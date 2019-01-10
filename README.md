@@ -1,7 +1,7 @@
 # AIR_Drums 
 
-![Recordit GIF](Images/play_drums.gif) 
 ### [View Video](https://www.youtube.com/watch?v=vsIh6W8XdUE)
+![Recordit GIF](Images/play_drums.gif) 
 
 Augmented reality drums based on concepts of computer vision and image processing. 
 A fun application created to enable users to play virtual drums anywhere simply by using
