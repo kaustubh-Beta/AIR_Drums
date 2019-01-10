@@ -103,6 +103,8 @@ Snare_top = [Snare_center[0]-Snare_thickness[0]//2,Snare_center[1]-Snare_thickne
 Snare_btm = [Snare_center[0]+Snare_thickness[0]//2,Snare_center[1]+Snare_thickness[1]//2]
 ```
 
+ROI is selected by indexing the rows and columns of the image frame.
+```python img[a:b,c:d] ```
 
 
 
