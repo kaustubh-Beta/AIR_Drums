@@ -107,7 +107,6 @@ The region of interest is the black colour portion in the image below
 **Why ROI is needed ?**
 
 Answer is **Speed**.
-
 To detect blue color we need to perform certain operations on each captured frame. 
 `These operations need some computations to be performed by the processor`.
 Since our instruments are fixed in this application and we want to play the sound only
