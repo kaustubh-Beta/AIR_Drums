@@ -66,13 +66,55 @@ ret,frame = camera.read()
 H,W = frame.shape[:2]
 ```
 
-#### Reading the images of instruments to be augmented
+#### Reading the images of instruments to be augmented with fixed size (200,100)
 
 ```python
 # reading the image of hatt and snare for augmentation.
 Hatt = cv2.resize(cv2.imread('Hatt.png'),(200,100),interpolation=cv2.INTER_CUBIC)
 Snare = cv2.resize(cv2.imread('Snare.png'),(200,100),interpolation=cv2.INTER_CUBIC)
 ```
+> to read an image the syntax is cv2.imread("path of the image")
+> to reshape the image as per desired shape we use cv2.resize(image,(width,heigh),interpolation=INTERPOLATION_METHOD_FLAG_VALUE)
+The size for augmenting the objects is decided based on the ROI.
+
+
+#### Setting the ROI (Region of interest)
+The region of interest is the black colour portion in the image below
+![](Images/image1999.jpg)
+
+**Why ROI is needed ?**
+> Answer is **Speed**
+>To detect blue color we need to perform certain operations on each captured frame. 
+>`These operations need some computations to be performed by the processor`.
+>Since our instruments are fixed in this application and we want to play the sound only 
+>if the blue color object hits the instrument (`detected inside the ROI`) it is a good idea
+>to perform all these operation only inside the ROI. 
+
+```python
+# Setting the ROI area for blue color detection
+Hatt_center = [np.shape(frame)[1]*2//8,np.shape(frame)[0]*6//8]
+Snare_center = [np.shape(frame)[1]*6//8,np.shape(frame)[0]*6//8]
+Hatt_thickness = [200,100]
+Hatt_top = [Hatt_center[0]-Hatt_thickness[0]//2,Hatt_center[1]-Hatt_thickness[1]//2]
+Hatt_btm = [Hatt_center[0]+Hatt_thickness[0]//2,Hatt_center[1]+Hatt_thickness[1]//2]
+
+Snare_thickness = [200,100]
+Snare_top = [Snare_center[0]-Snare_thickness[0]//2,Snare_center[1]-Snare_thickness[1]//2]
+Snare_btm = [Snare_center[0]+Snare_thickness[0]//2,Snare_center[1]+Snare_thickness[1]//2]
+```
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
