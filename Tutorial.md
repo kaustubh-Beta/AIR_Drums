@@ -32,4 +32,8 @@ drum_snare = mixer.Sound('button-2.ogg')
 ```
 
 Here `verbose` is a boolean that you can set to visualise the processing 
-in the [region of interest] (# Initializing variables and creating objects) 
+in the ROI (Reggion of interest)
+
+verbose = True | with verbose = False
+--- | ---
+[](Images/image1999.jpg) | [](Images/image1999.jpg)
