@@ -72,7 +72,6 @@ Snare_btm = [Snare_center[0]+Snare_thickness[0]//2,Snare_center[1]+Snare_thickne
 
 
 time.sleep(1)
-count = 0
 
 while True:
     count+=1
