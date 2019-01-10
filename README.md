@@ -15,11 +15,11 @@ colour tags.
 
 ## Installation
 
-### Clone
+#### Clone
 
 - Clone this repo to your local machine using `https://github.com/kaustubh-Beta/AIR_Drums.git`
 
-### Setup/Requirements
+#### Setup/Requirements
 
 > The code is written in Python (`Python3`)
 > You need the following libraries
@@ -30,7 +30,7 @@ colour tags.
 
 ---
 
-### Refer the [Tutorial](Tutorial.md) for detailed explaination of the code.
+##### Refer the [Tutorial](Tutorial.md) for detailed explaination of the code.
 
 
 
