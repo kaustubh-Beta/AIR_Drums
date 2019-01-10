@@ -1,9 +1,12 @@
 # AIR_Drums Project Tutorial
 
 This tutorial aims at explaining some key concepts of `image processing` using `opencv` with python.
-
 We will try to understand each line of the [code](Air_Drums.py)
 
+###### Note for someone using python for the first time
+> anything written after '#' will be treated as a comment 
+> it is a good practice to add comments in your code. It makes 
+> the code more readable
 
 ---
 #### Importing all the required libraries 
@@ -37,5 +40,41 @@ in the ROI (Reggion of interest)
 verbose = True | with verbose = False
 --- | ---
 ![](Images/image1999.jpg) | ![](Images/Image.png)
+
+
+#### Setting the HSV color range to detect blue color
+
+```python
+
+# HSV range for detecting blue color 
+blueLower = (80,150,50)
+blueUpper = (120,255,255)
+```
+With the above lines we set the values to detect the blue color. 
+These values will be used in the [creating mask](# creating mask ) to find 
+`pixels corresponding to blue color inside the ROI.`
+
+
+#### Capturing frames from camera and determining the frame size. 
+
+```python
+# Frame accusition from webcam/ usbcamera 
+camera = cv2.VideoCapture(0)
+ret,frame = camera.read()
+
+# Determining the frame resolution (height,width)
+H,W = frame.shape[:2]
+```
+
+#### Reading the images of instruments to be augmented
+
+```python
+# reading the image of hatt and snare for augmentation.
+Hatt = cv2.resize(cv2.imread('Hatt.png'),(200,100),interpolation=cv2.INTER_CUBIC)
+Snare = cv2.resize(cv2.imread('Snare.png'),(200,100),interpolation=cv2.INTER_CUBIC)
+```
+
+
+
 
 
