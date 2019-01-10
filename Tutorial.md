@@ -122,7 +122,8 @@ frame = cv2.flip(frame,1)
 
 Selecting the ROI corresponding to Snare and Hatt.
 ROI is selected by indexing the rows and columns of the image frame.
-```python img[a:b,c:d] 
+```python 
+img[a:b,c:d] 
 ```
 The above line is an example how you can index rows from a to b of columns c to d 
 of the image stored as a numpy array `img`.
