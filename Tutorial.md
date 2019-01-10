@@ -8,6 +8,8 @@ We will try to understand each line of the [code](Air_Drums.py)
 > it is a good practice to add comments in your code. 
 > It makes the code easy to understand.
 
+
+
 ---
 #### Importing all the required libraries 
 ```python
@@ -20,6 +22,9 @@ import cv2
 from pygame import mixer
 
 ````
+
+
+
 
 ####  Initializing variables and creating objects
 
@@ -42,6 +47,9 @@ verbose = True | with verbose = False
 ![](Images/image1999.jpg) | ![](Images/Image.png)
 
 
+
+
+
 #### Setting the HSV color range to detect blue color
 
 ```python
@@ -55,6 +63,10 @@ These values will be used in the [creating mask](# creating mask ) to find
 `pixels corresponding to blue color inside the ROI.`
 
 
+
+
+
+
 #### Capturing frames from camera and determining the frame size. 
 
 ```python
@@ -66,6 +78,10 @@ ret,frame = camera.read()
 H,W = frame.shape[:2]
 ```
 
+
+
+
+
 #### Reading the images of instruments to be augmented with fixed size (200,100)
 
 ```python
@@ -76,6 +92,10 @@ Snare = cv2.resize(cv2.imread('Snare.png'),(200,100),interpolation=cv2.INTER_CUB
 > to read an image the syntax is cv2.imread("path of the image")
 > to reshape the image as per desired shape we use cv2.resize(image,(width,heigh),interpolation=INTERPOLATION_METHOD_FLAG_VALUE)
 The size for augmenting the objects is decided based on the ROI.
+
+
+
+
 
 
 #### Setting the ROI parameters (Region of interest)
