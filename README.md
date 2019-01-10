@@ -7,15 +7,17 @@ A fun application created to enable users to play virtual drums anywhere simply 
 colour tags.
 
 >- You can use it for entertainment or can learn some key functions of opencv from this code. 
->- Refer a detailed [Tutorial](Tutorial.md) explaining the [code]().
+>- Refer a detailed [Tutorial](Tutorial.md) explaining the [code](Air_Drums.py).
 
 ---
+
+
 
 ## Installation
 
 ### Clone
 
-- Clone this repo to your local machine using `https://github.com/fvcproductions/SOMEREPO`
+- Clone this repo to your local machine using `https://github.com/kaustubh-Beta/AIR_Drums.git`
 
 ### Setup/Requirements
 
@@ -29,6 +31,7 @@ colour tags.
 ---
 
 ### Refer the [Tutorial](Tutorial.md) for detailed explaination of the code.
+
 
 
 ## License
