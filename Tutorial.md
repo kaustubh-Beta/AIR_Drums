@@ -8,9 +8,10 @@ We will try to understand each line of the [code](Air_Drums.py)
 > it is a good practice to add comments in your code. 
 > It makes the code easy to understand.
 
-
-
 ---
+
+
+
 #### Importing all the required libraries 
 ```python
 
@@ -104,7 +105,9 @@ The region of interest is the black colour portion in the image below
 ![](Images/image1999.jpg)
 
 **Why ROI is needed ?**
-Answer is **Speed**
+
+Answer is **Speed**.
+
 To detect blue color we need to perform certain operations on each captured frame. 
 `These operations need some computations to be performed by the processor`.
 Since our instruments are fixed in this application and we want to play the sound only
@@ -144,5 +147,3 @@ if the image stored in a numpy array `img`.
 
 
 
-
-This 
