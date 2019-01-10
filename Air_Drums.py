@@ -74,10 +74,10 @@ Snare_btm = [Snare_center[0]+Snare_thickness[0]//2,Snare_center[1]+Snare_thickne
 time.sleep(1)
 
 while True:
-    count+=1
-    # grab the current frame
-    ret, frame = camera.read()
-    frame = cv2.flip(frame,1)
+	
+	# grab the current frame
+	ret, frame = camera.read()
+	frame = cv2.flip(frame,1)
     if not ret:
     	break
     
@@ -103,7 +103,6 @@ while True:
     
     
     cv2.imshow('Output',frame)
-    #cv2.imshow('mask',mask)
     key = cv2.waitKey(1) & 0xFF
     # if the 'q' key is pressed, stop the loop
     if key == ord("q"):
