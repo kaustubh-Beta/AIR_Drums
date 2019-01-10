@@ -14,7 +14,6 @@ We will try to understand each line of the [code](Air_Drums.py)
 ```python
 
 # Importing the libraries 
-from collections import deque
 import numpy as np
 import time
 import cv2
@@ -35,31 +34,31 @@ drum_snare = mixer.Sound('button-2.ogg')
 
 ```
 
-Here `verbose` is a boolean that you can set to visualise the processing 
-in the ROI (Reggion of interest)
+Here `verbose` is a Boolean that you can set to visualise the processing 
+in the ROI (Region of interest)
 
 verbose = True | with verbose = False
 --- | ---
 ![](Images/image1999.jpg) | ![](Images/Image.png)
 
 
-#### Setting the HSV color range to detect blue color
+#### Setting the HSV colour range to detect blue colour
 
 ```python
 
-# HSV range for detecting blue color 
+# HSV range for detecting blue colour 
 blueLower = (80,150,50)
 blueUpper = (120,255,255)
 ```
-With the above lines we set the values to detect the blue color. 
+With the above lines we set the values to detect the blue colour. 
 These values will be used in the [creating mask](# creating mask ) to find 
-`pixels corresponding to blue color inside the ROI.`
+`pixels corresponding to blue colour inside the ROI.`
 
 
 #### Capturing frames from camera and determining the frame size. 
 
 ```python
-# Frame accusition from webcam/ usbcamera 
+# Frame accusation from webcam/ usb camera 
 camera = cv2.VideoCapture(0)
 ret,frame = camera.read()
 
@@ -85,19 +84,19 @@ The region of interest is the black colour portion in the image below
 
 ![](Images/image1999.jpg)
 
-**Why ROI is needed ?**
+**Why ROI is needed?**
 
 Answer is **Speed**.
-To detect blue color we need to perform certain operations on each captured frame. 
+To detect blue colour we need to perform certain operations on each captured frame. 
 `These operations need some computations to be performed by the processor`.
 Since our instruments are fixed in this application and we want to play the sound only
-if the blue color object hits the instrument (`detected inside the ROI`) it is a good idea
-to perform all these operation only inside the ROI. 
+if the blue colour object hits the instrument (`detected inside the ROI`) it is a good idea
+to perform all these operations only inside the ROI. 
 
 With the below lines of code we calculate the top left and bottom right corners of the ROI 
 corresponding to both the instruments *Hatt and Snare*. 
 ```python
-# Setting the corners of ROI for blue color detection
+# Setting the corners of ROI for blue colour detection
 Hatt_center = [np.shape(frame)[1]*2//8,np.shape(frame)[0]*6//8]
 Snare_center = [np.shape(frame)[1]*6//8,np.shape(frame)[0]*6//8]
 Hatt_thickness = [200,100]
@@ -168,10 +167,10 @@ To understand the above code lets break it down into what it is doing.
 - Accessing the pixels, of the original frame, inside the corresponding ROI and changing their values. This is done by 
 >frame[a:b,c:d] where a,b,c and d are the desired values for corresponding ROI.
 - What values to be assigned to the pixels ?? That is what helps us to achieve the augmentation.
-> Incase of verbose = True, we set the pixel values equal to the ROI with blue pixels being displayed.
+> In case of verbose = True, we set the pixel values equal to the ROI with blue pixels being displayed.
 > `cv2.bitwise_and(image,image,mask=bin_mask)` this step makes pixels values = 0 for region where 
 > mask=0 and rest of the image is unchanged. 
-> Incase of verbose = False, we use the cv2.addWeighted() function of opencv to augment the 
+> In case of verbose = False, we use the cv2.addWeighted() function of opencv to augment the 
 > instruments in the output frame.
 
 
@@ -179,7 +178,7 @@ finally we display the output by `cv2.imshow()`
 
 #### Understanding the ROI analysis function
 Frame corresponding ROI is cropped and passed to the function which performs all the operations to detect blue 
-color pixels in it. We use HSV color space to detect the presence of blue color. 
+colour pixels in it. We use HSV colour space to detect the presence of blue colour. 
 
 ```python
 def ROI_analysis(frame,sound):
@@ -188,10 +187,10 @@ def ROI_analysis(frame,sound):
 	# converting the image into HSV
 	hsv = cv2.cvtColor(frame, cv2.COLOR_BGR2HSV)
 	
-  # generating mask for pixels corresponding to detected blue color.
+  # generating mask for pixels corresponding to detected blue colour.
 	mask = cv2.inRange(hsv, blueLower, blueUpper)
 	
-	# Calculating the number of white pixels depecting the blue color pixels in the ROI
+	# Calculating the number of white pixels depecting the blue colour pixels in the ROI
 	sumation = np.sum(mask)
 	
 	# Function that decides to play the instrument or not.
@@ -203,7 +202,7 @@ return mask
 
 #### Finall how is the sound being played ....
 The function compares the total number of detected blue pixels with a threshold 
-and if the the sum is larger than the threshold the the corresponding sound is 
+and if the sum is larger than threshold the corresponding sound is 
 played by the line `drum_clap.play()` or `drum_snare.play().
 
 ```python
