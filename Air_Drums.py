@@ -17,7 +17,25 @@ def state_machine(sumation,sound):
 		drum_snare.play()
 		time.sleep(0.001)
 
-Verbsoe = True
+def ROI_analysis(frame,sound):
+	
+
+	# converting the image into HSV
+	hsv = cv2.cvtColor(frame, cv2.COLOR_BGR2HSV)
+	# generating mask for 
+	mask = cv2.inRange(hsv, blueLower, blueUpper)
+	
+	# Calculating the nuber of white pixels depecting the blue color pixels in the ROI
+	sumation = np.sum(mask)
+	
+	# Function that decides to play the instrument or not.
+	state_machine(sumation,sound)
+
+	
+	return mask
+
+
+Verbsoe = False
 
 # importing the audio files
 mixer.init()
@@ -26,7 +44,7 @@ drum_snare = mixer.Sound('button-2.ogg')
 
 
 # HSV range for detecting blue color 
-blueLower = (80,150,50)
+blueLower = (80,150,10)
 blueUpper = (120,255,255)
 
 # Frame accusition from webcam/ usbcamera 
@@ -54,27 +72,23 @@ Snare_btm = [Snare_center[0]+Snare_thickness[0]//2,Snare_center[1]+Snare_thickne
 
 
 time.sleep(1)
-
+count = 0
 
 while True:
+    count+=1
     # grab the current frame
     ret, frame = camera.read()
     frame = cv2.flip(frame,1)
     if not ret:
     	break
     
-    # converting the image into HSV
-    hsv = cv2.cvtColor(frame, cv2.COLOR_BGR2HSV)
-    # generating mask for 
-    mask = cv2.inRange(hsv, blueLower, blueUpper)
-    
-    # Calculating the nuber of white pixels depecting the blue color pixels in the ROI
-    sumation = np.sum(mask[Snare_top[1]:Snare_btm[1],Snare_top[0]:Snare_btm[0]])
-    
-    # Function that decides to play the instrument or not.
-    state_machine(sumation,1)
-    sumation = np.sum(mask[Hatt_top[1]:Hatt_btm[1],Hatt_top[0]:Hatt_btm[0]])
-    state_machine(sumation,2)
+    # Selecting ROI corresponding to snare
+    snare_ROI = np.copy(frame[Snare_top[1]:Snare_btm[1],Snare_top[0]:Snare_btm[0]])
+    mask = ROI_analysis(snare_ROI,1)
+
+    # Selecting ROI corresponding to Hatt
+    hatt_ROI = np.copy(frame[Hatt_top[1]:Hatt_btm[1],Hatt_top[0]:Hatt_btm[0]])
+    mask = ROI_analysis(hatt_ROI,2)
 
     # A writing text on an image.
     cv2.putText(frame,'Project: Air Drums',(10,30),2,1,(20,20,20),2)
@@ -87,8 +101,8 @@ while True:
     	# Augmenting the image of the instruments on the frame.
     	frame[Snare_top[1]:Snare_btm[1],Snare_top[0]:Snare_btm[0]] = cv2.addWeighted(Snare, 1, frame[Snare_top[1]:Snare_btm[1],Snare_top[0]:Snare_btm[0]], 1, 0)
     	frame[Hatt_top[1]:Hatt_btm[1],Hatt_top[0]:Hatt_btm[0]] = cv2.addWeighted(Hatt, 1, frame[Hatt_top[1]:Hatt_btm[1],Hatt_top[0]:Hatt_btm[0]], 1, 0)
-
-
+    
+    
     cv2.imshow('Output',frame)
     #cv2.imshow('mask',mask)
     key = cv2.waitKey(1) & 0xFF
