@@ -3,10 +3,10 @@
 This tutorial aims at explaining some key concepts of `image processing` using `opencv` with python.
 We will try to understand each line of the [code](Air_Drums.py)
 
-###### Note for someone using python for the first time
+> ###### Note for someone using python for the first time:
 > anything written after '#' will be treated as a comment 
-> it is a good practice to add comments in your code. It makes 
-> the code more readable
+> it is a good practice to add comments in your code. 
+> It makes the code easy to understand.
 
 ---
 #### Importing all the required libraries 
@@ -78,20 +78,23 @@ Snare = cv2.resize(cv2.imread('Snare.png'),(200,100),interpolation=cv2.INTER_CUB
 The size for augmenting the objects is decided based on the ROI.
 
 
-#### Setting the ROI (Region of interest)
+#### Setting the ROI parameters (Region of interest)
 The region of interest is the black colour portion in the image below
+
 ![](Images/image1999.jpg)
 
 **Why ROI is needed ?**
-> Answer is **Speed**
->To detect blue color we need to perform certain operations on each captured frame. 
->`These operations need some computations to be performed by the processor`.
->Since our instruments are fixed in this application and we want to play the sound only 
->if the blue color object hits the instrument (`detected inside the ROI`) it is a good idea
->to perform all these operation only inside the ROI. 
+Answer is **Speed**
+To detect blue color we need to perform certain operations on each captured frame. 
+`These operations need some computations to be performed by the processor`.
+Since our instruments are fixed in this application and we want to play the sound only
+if the blue color object hits the instrument (`detected inside the ROI`) it is a good idea
+to perform all these operation only inside the ROI. 
 
+With the below lines of code we calculate the top left and bottom right corners of the ROI 
+corresponding to both the instruments *Hatt and Snare*. 
 ```python
-# Setting the ROI area for blue color detection
+# Setting the corners of ROI for blue color detection
 Hatt_center = [np.shape(frame)[1]*2//8,np.shape(frame)[0]*6//8]
 Snare_center = [np.shape(frame)[1]*6//8,np.shape(frame)[0]*6//8]
 Hatt_thickness = [200,100]
@@ -105,8 +108,8 @@ Snare_btm = [Snare_center[0]+Snare_thickness[0]//2,Snare_center[1]+Snare_thickne
 
 ROI is selected by indexing the rows and columns of the image frame.
 ```python img[a:b,c:d] ```
-
-
+The above line is an example how you can index rows from a to b of columns c to d 
+if the image stored in a numpy array `img`.
 
 
 
